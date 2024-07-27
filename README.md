@@ -2,6 +2,10 @@
 
 This project speaks about displaying profile pictures in a live-updating leaderboard using React, styled-components, and TypeScript. By ensuring each player's "picture" property points to a valid image URL or a default image, and updating the "Player" and "Leaderboard" components to handle these images, the leaderboard correctly shows profile pictures. This setup ensures smooth animations for score updates and position changes, meeting the project requirements.
 
+# Video Link
+
+https://youtu.be/qh54AyIQXwY
+
 # Snippet
 
 <img src="./src/snippets/leaderboard1.png" alt="Leaderboard Image" />
