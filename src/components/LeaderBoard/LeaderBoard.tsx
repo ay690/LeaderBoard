@@ -28,7 +28,7 @@ const LeaderBoard: React.FC = () => {
   console.log(players);
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       setPlayers((prevPlayers) =>
         prevPlayers.map((player) => ({
           ...player,
@@ -36,6 +36,8 @@ const LeaderBoard: React.FC = () => {
         }))
       );
     }, 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
