@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LeaderBoardConatiner, Heading } from "./LeaderBoardStyle";
 import profile from "../../assets/profile-icon-upload.png";
 import Player from "../Player/Player";
@@ -27,10 +27,23 @@ const LeaderBoard: React.FC = () => {
   const [players, setPlayers] = useState<PlayerData[]>(initialPlayers);
   console.log(players);
 
+  useEffect(() => {
+    setInterval(() => {
+      setPlayers((prevPlayers) =>
+        prevPlayers.map((player) => ({
+          ...player,
+          score: player.score + Math.floor(Math.random() * 100),
+        }))
+      );
+    }, 1000);
+  }, []);
+
+  const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
+
   return (
     <LeaderBoardConatiner>
       <Heading>LeaderBoard</Heading>
-      {players?.map((player, idx) => (
+      {sortedPlayers?.map((player, idx) => (
         <Player
           key={player.userID}
           displayName={player.displayName}
