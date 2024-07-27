@@ -6,16 +6,17 @@ interface PlayerProps {
   displayName: string;
   picture: string;
   score: number;
+  position: number;
 }
 
 const Player: React.FC<PlayerProps> = ({
   displayName,
   picture,
-
+  position,
   score,
 }) => {
   return (
-    <PlayerContainer>
+    <PlayerContainer position={position}>
       <WarpperImage>
         <Picture src={picture || profile} alt={displayName} />
         {displayName}

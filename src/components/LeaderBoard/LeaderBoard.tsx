@@ -30,7 +30,7 @@ const LeaderBoard: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setPlayers((prevPlayers) =>
-        prevPlayers.map((player) => ({
+        prevPlayers?.map((player) => ({
           ...player,
           score: player.score + Math.floor(Math.random() * 100),
         }))
@@ -51,6 +51,7 @@ const LeaderBoard: React.FC = () => {
           displayName={player.displayName}
           picture={player.picture || profile}
           score={player.score}
+          position={idx}
         />
       ))}
     </LeaderBoardConatiner>
